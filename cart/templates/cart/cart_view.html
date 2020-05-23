@@ -38,7 +38,7 @@
                         {% for product in product_list%}
                         <tr>
                             <td><a style="color:#7386D5;" href="{{product.get_absolute_url}}">{{product}}</a></td>
-                            <td>{{product.productMaterialItemCode}}</td>
+                            <td>{{product.productItemCode}}</td>
                             <td>{{product.price}}</td>
                             <td>{%if not error%}<a href="?action=add&id={{product.id}}"><i class="fas fa-plus"></i></a>{%endif%}</td>
                         </tr>

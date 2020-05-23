@@ -23,7 +23,7 @@ SU_VIEWS=['dashboard','inventory',
           'cart_view',
           'order_approve_quotation','order_payment_confirm',
           'order_confirm_quotation','confirm_purchase','order_list','order_detail',
-          'register','update','password_change','logout','view',
+          'register','update','password_change','logout','view','user_list'
 
           ]
 

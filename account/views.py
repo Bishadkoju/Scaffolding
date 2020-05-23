@@ -6,6 +6,20 @@ from django.http import HttpResponse
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.views import PasswordChangeForm
 from account.models import Profile,Company
+from django.views.generic import ListView
+from .filters import UserFilter
+
+
+class UserListView(ListView):
+    model=User
+    paginate_by =10
+    context_object_name='users'
+    template_name='account/user_list.html'
+
+    def get_context_data(self, **kwargs):
+        context =super().get_context_data(**kwargs)
+        context['filter']=UserFilter(self.request.GET,self.get_queryset())
+        return context
 
 
 # Create your views here.
@@ -90,3 +104,11 @@ def change_password(request):
     return render(request, 'account/change_password.html', {
         'form': form
     })
+
+# def userListView(request):
+#     users=User.objects.all()
+#     context={'users':users}
+#     return render(request,'account/user_list.html',context)
+
+
+
