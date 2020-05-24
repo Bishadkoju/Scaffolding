@@ -325,12 +325,14 @@ def addDnCnView(request,pk,type):
             info.type=type
             info.recorded_by=request.user
 
-            if order.type!='Sale' and type=='CN':
+            if order.type == 'Rent' and type=='CN':
                 order.status='RETURNED'
                 rent_detail=RentalDetails.objects.get(id=order.rentaldetails.id)
                 rent_detail.returned_date=datetime.today()
                 rent_detail.save()
-            else :
+            elif order.type =='Purchase' and type =='CN' :
+                order.status='RECEIVED'
+            else:
                 order.status='SHIPPED'
 
 

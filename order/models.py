@@ -13,8 +13,9 @@ class OrderRegister(models.Model):
                    ('CONFIRMED','CONFIRMED'),
                    ('PACKING','PACKING'),
                    ('SHIPPED','SHIPPED'),
-                   ('RETURNED','RETURNED')
-                   ,('CLOSED','CLOSED'),
+                   ('RETURNED','RETURNED'),
+                   ('RECEIVED','RECEIVED'),
+                   ('CLOSED','CLOSED'),
                    ('PURCHASED','PURCHASED'),)
 
     user=models.ForeignKey(User,on_delete=models.CASCADE)
